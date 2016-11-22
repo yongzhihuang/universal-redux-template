@@ -89,7 +89,7 @@ server.get('*', (req, res, next)=> {
 
       getReduxPromise().then(()=> {
         let reduxState = escape(JSON.stringify(store.getState()))
-        let html = ReactDOMServer.renderToString(
+        let html = ReactDOMServer.renderToStaticMarkup(
           <Provider store={store}>
             { <RouterContext {...renderProps}/> }
           </Provider>
